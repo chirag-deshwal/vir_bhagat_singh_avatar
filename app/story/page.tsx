@@ -38,7 +38,10 @@ function StoryPageContent() {
             <div className="flex flex-col md:flex-row h-screen overflow-hidden">
 
                 {/* Left Side: Chapter List */}
-                <div className="w-full md:w-1/3 h-1/2 md:h-full overflow-y-auto border-r border-neutral-800 p-8 pt-32 bg-neutral-900/50 backdrop-blur-sm">
+                <div
+                    data-lenis-prevent
+                    className="w-full md:w-1/3 h-1/2 md:h-full overflow-y-scroll border-r border-neutral-800 p-8 pt-32 bg-neutral-900/50 backdrop-blur-sm 
+                    scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-transparent hover:scrollbar-thumb-orange-500">
                     <div className="space-y-4">
                         {storyChapters.map((chapter, index) => (
                             <button
@@ -48,8 +51,8 @@ function StoryPageContent() {
                                     setShowDetails(false);
                                 }}
                                 className={`w-full text-left p-6 border transition-all duration-300 group relative overflow-hidden ${activeChapter.id === chapter.id
-                                        ? "border-orange-500 bg-orange-500/10"
-                                        : "border-neutral-800 hover:border-neutral-600 hover:bg-neutral-800"
+                                    ? "border-orange-500 bg-orange-500/10"
+                                    : "border-neutral-800 hover:border-neutral-600 hover:bg-neutral-800"
                                     }`}
                             >
                                 <span className="text-xs font-mono text-neutral-500 mb-2 block group-hover:text-orange-400">
@@ -65,7 +68,10 @@ function StoryPageContent() {
                 </div>
 
                 {/* Right Side: Content Viewer */}
-                <div className="w-full md:w-2/3 h-1/2 md:h-full relative flex flex-col justify-center p-8 md:p-24 bg-[url('/noise.png')]">
+                <div
+                    data-lenis-prevent
+                    className="w-full md:w-2/3 h-1/2 md:h-full relative flex flex-col justify-center p-8 md:p-24 bg-[url('/noise.png')] overflow-y-auto 
+                    scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-transparent hover:scrollbar-thumb-orange-500">
 
                     <div className="max-w-2xl relative z-10">
                         <div className="inline-block px-3 py-1 border border-orange-500 text-orange-500 text-xs font-mono mb-6 uppercase tracking-widest">

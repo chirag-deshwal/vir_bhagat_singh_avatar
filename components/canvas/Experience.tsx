@@ -107,7 +107,7 @@ export const Experience = () => {
             </group>
 
             {/* Post Processing for Film Look */}
-            <EffectComposer disableNormalPass>
+            <EffectComposer enableNormalPass={false}>
                 <Noise opacity={0.05} />
                 <Vignette eskil={false} offset={0.1} darkness={1.1} />
             </EffectComposer>

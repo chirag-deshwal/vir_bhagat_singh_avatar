@@ -24,7 +24,8 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: 0;
-  pointer-events: none; /* Let clicks pass through to DOM unless we want interaction */
+  pointer-events: none;
+  /* Let clicks pass through to DOM unless we want interaction */
 }
 
 /* We might want interaction on the canvas for controls, so we can toggle pointer-events */
@@ -37,4 +38,36 @@ body {
   z-index: 10;
   width: 100%;
   /* Sections to scroll through */
+}
+
+/* Custom Scrollbar for Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+  /* orange-500 */
+}
+
+/* Hide scrollbar utility class */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
