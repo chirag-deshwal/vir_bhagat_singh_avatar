@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  /* overflow-y is needed for scrolling */
+}
+
+/* Ensure canvas is behind everything */
+#canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none; /* Let clicks pass through to DOM unless we want interaction */
+}
+
+/* We might want interaction on the canvas for controls, so we can toggle pointer-events */
+#canvas-container.interactive {
+  pointer-events: auto;
+}
+
+.experience-section {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  /* Sections to scroll through */
+}

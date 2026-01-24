@@ -1,31 +1,36 @@
-# Gesture Controlled 3D Cube
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This Flutter application uses the device camera to track hand gestures (wrists) and allows you to rotate a 3D cube by swiping your hand in the air.
+## Getting Started
 
-## Features
-- **3D Cube**: A rendered 3D cube using Flutter transforms.
-- **Hand Gesture Recognition**: Uses Google ML Kit Pose Detection to track wrist movements.
-- **Camera Integration**: Real-time camera feed processing.
-- **Swipe Control**: 
-  - Move hand UP to rotate Up.
-  - Move hand DOWN to rotate Down.
-  - Move hand LEFT/RIGHT to rotate Left/Right.
+First, run the development server:
 
-## Requirements
-- **Platform**: Android (minSdk 21) or iOS.
-  - **Note**: Windows Desktop is NOT supported for ML Kit Pose Detection. You must run this on an **Android Emulator** or a **Physical Device**.
-- **Permissions**: Camera and Internet access.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## How to Run
-1. Connect an Android device or start an Android Emulator (configure emulator to use Webcam).
-2. Run the app:
-   ```bash
-   flutter run
-   ```
-3. Allow Camera permissions.
-4. Position your hand in front of the camera.
-5. Move your hand to rotate the cube!
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Troubleshooting
-- **No detection**: Ensure lighting is good and your upper body/hand is visible. The model might download on first run (requires internet).
-- **Camera rotation**: If the camera preview is rotated, the app attempts to handle it, but different layouts might affect it.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
