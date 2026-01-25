@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect } from "react";
 import { storyChapters } from "@/data/bhagat_singh_story";
 
@@ -37,10 +38,10 @@ export default function Overlay() {
             {/* Header */}
             <header className="fixed top-0 left-0 w-full p-8 md:p-12 flex justify-between items-center mix-blend-exclusion text-white z-50 pointer-events-auto">
                 <div className="text-xl md:text-2xl font-bold tracking-tighter cursor-pointer">
-                    {/* <a href="/">Vir Bhagat Singh</a> */}
+                    {/* <Link href="/">Vir Bhagat Singh</Link> */}
                 </div>
                 <nav className="hidden md:flex space-x-8 text-sm font-medium tracking-widest">
-                    <a href="/story" className="hover:opacity-50 transition-opacity">STORY</a>
+                    <Link href="/story" className="hover:opacity-50 transition-opacity">STORY</Link>
                 </nav>
                 <button className="md:hidden text-sm font-bold uppercase">Menu</button>
             </header>
@@ -82,7 +83,7 @@ export default function Overlay() {
                 <h2 className="text-sm font-bold uppercase tracking-widest mb-12 mix-blend-exclusion text-white">STORY LINE</h2>
                 <div className="flex flex-col space-y-8 mix-blend-exclusion text-white pointer-events-auto">
                     {storyChapters.map((chapter, i) => (
-                        <a
+                        <Link
                             key={chapter.id}
                             href={`/story?chapter=${chapter.id}`}
                             className="group flex flex-col md:flex-row md:items-center justify-between border-t border-white/20 py-8 hover:bg-white/5 transition-colors cursor-pointer"
@@ -93,7 +94,7 @@ export default function Overlay() {
                             <span className="text-sm font-mono mt-2 md:mt-0 opacity-0 group-hover:opacity-100 transition-opacity">
                                 0{i + 1} — {chapter.year}
                             </span>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </section>
