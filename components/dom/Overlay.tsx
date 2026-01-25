@@ -1,6 +1,36 @@
+"use client";
+
+import { useEffect } from "react";
 import { storyChapters } from "@/data/bhagat_singh_story";
 
 export default function Overlay() {
+
+    useEffect(() => {
+        // Initialize Unicorn Studio
+        const initUnicorn = () => {
+            // @ts-ignore
+            const u = window.UnicornStudio;
+            if (u && u.init) {
+                u.init();
+            } else {
+                // @ts-ignore
+                window.UnicornStudio = { isInitialized: false };
+                const script = document.createElement("script");
+                script.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.3/dist/unicornStudio.umd.js";
+                script.onload = () => {
+                    // @ts-ignore
+                    if (window.UnicornStudio && window.UnicornStudio.init) {
+                        // @ts-ignore
+                        window.UnicornStudio.init();
+                    }
+                };
+                document.head.appendChild(script);
+            }
+        };
+
+        initUnicorn();
+    }, []);
+
     return (
         <div className="absolute top-0 left-0 w-full z-10 pointer-events-none">
 
@@ -11,15 +41,13 @@ export default function Overlay() {
                 </div>
                 <nav className="hidden md:flex space-x-8 text-sm font-medium tracking-widest">
                     <a href="/story" className="hover:opacity-50 transition-opacity">STORY</a>
-                    <a href="#" className="hover:opacity-50 transition-opacity">WORK</a>
-                    <a href="#" className="hover:opacity-50 transition-opacity">ABOUT</a>
                 </nav>
                 <button className="md:hidden text-sm font-bold uppercase">Menu</button>
             </header>
 
             {/* Hero Section */}
-            <section className="h-screen w-full flex flex-col justify-center px-8 md:px-24">
-                <div className="mix-blend-exclusion text-white">
+            <section className="h-screen w-full flex flex-col justify-center px-8 md:px-24 relative overflow-hidden">
+                <div className="z-20 relative mix-blend-exclusion text-white">
                     <h1 className="text-[12vw] leading-[0.85] font-black tracking-[-0.05em]">
                         BHAGAT
                     </h1>
@@ -28,10 +56,15 @@ export default function Overlay() {
                     </h1>
                     <div className="mt-12 flex items-center gap-4">
                         <div className="h-[1px] w-12 bg-white"></div>
-                        <p className="text-sm md:text-lg font-bold tracking-wide uppercase max-w-sm">
+                        <p className="text-sm md:text-lg font-bold tracking-wide uppercase max-w-sm text-transparent bg-clip-text bg-gradient-to-b from-[#FF9933] via-[#FFFFFF] to-[#138808]">
                             INQUILAB ZINDABAD (Long Live Revolution)
                         </p>
                     </div>
+                </div>
+
+                {/* Unicorn Studio Embed - Positioned Absolute Right */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 pointer-events-auto origin-right scale-75 md:scale-90 lg:scale-100">
+                    <div data-us-project="Wg0EX4torxDPnfR78B5S" style={{ width: '1440px', height: '900px' }}></div>
                 </div>
             </section>
 
@@ -77,9 +110,9 @@ export default function Overlay() {
                             <p>1907 – 1931</p>
                         </div>
                         <div className="flex space-x-6 mt-8 md:mt-0 font-bold uppercase tracking-widest pointer-events-auto">
-                            <a href="#" className="hover:underline">LinkedIn</a>
-                            <a href="#" className="hover:underline">Github</a>
-                            <a href="#" className="hover:underline">Twitter</a>
+                            <a href="https://www.linkedin.com/in/iamrahuldeshwal/" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a>
+                            <a href="https://github.com/chirag-deshwal" target="_blank" rel="noopener noreferrer" className="hover:underline">Github</a>
+                            <a href="https://x.com/iamrahuldeshwal" target="_blank" rel="noopener noreferrer" className="hover:underline">X</a>
                         </div>
                     </div>
                 </div>
@@ -88,3 +121,4 @@ export default function Overlay() {
         </div>
     );
 }
+

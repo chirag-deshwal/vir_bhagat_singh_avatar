@@ -9,7 +9,7 @@ export interface Chapter {
 export const storyChapters: Chapter[] = [
     {
         id: "early-life",
-        title: "Childhood of a Rebel",
+        title: "Childhood of a Revolutionary",
         year: "1907 – 1919",
         content: "Born into a Jat Sikh family deeply involved in revolutionary activities against the British Raj. As a child, Bhagat Singh spoke of growing guns in the fields so he could fight the British.",
         details: [
